@@ -7,21 +7,29 @@ public class StringTest {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter Something: ");
-        String userInput = input.nextLine();
 
-        System.out.println("You Entered: " + userInput);
+        String yesNo = "y";
+        do {
+            System.out.println("Enter Something: ");
+            String userInput = input.nextLine();
 
-        if(!isNumeric(userInput)){
-            System.out.println("\"" + userInput + "\"" + " is not a number");
-        } else{
-            System.out.println("Hey! There's a number in this string: " + parseFloat(userInput) + "!");
-        }
+            System.out.println("You Entered: " + userInput);
 
-        System.out.println(swapCase(userInput));
+            if (!isNumeric(userInput)) {
+                System.out.println("\"" + userInput + "\"" + " is not a number");
+            } else {
+                System.out.println("Hey! There's a number in this string: " + parseFloat(userInput) + "!");
+            }
 
-        System.out.println(reverse(userInput));
+            System.out.println(swapCase(userInput));
 
+            System.out.println(reverse(userInput));
+
+            System.out.println("Would you like to enter something else?");
+            yesNo = input.nextLine();
+
+        }while(yesNo.equalsIgnoreCase("y"));
+        System.out.println("Thanks for playing!");
 
 
     }
