@@ -1,3 +1,5 @@
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Scanner;
 
 import static java.lang.Float.parseFloat;
@@ -15,15 +17,20 @@ public class StringTest {
 
             System.out.println("You Entered: " + userInput);
 
-            if (!isNumeric(userInput)) {
-                System.out.println("\"" + userInput + "\"" + " is not a number");
-            } else {
-                System.out.println("Hey! There's a number in this string: " + parseFloat(userInput) + "!");
-            }
+//            My first pass
+//            if (!isNumeric(userInput)) {
+//                System.out.println("\"" + userInput + "\"" + " is not a number");
+//            } else {
+//                System.out.println("Hey! There's a number in this string: " + parseFloat(userInput) + "!");
+//            }
 
-            System.out.println(swapCase(userInput));
+            System.out.println("\"" + userInput + "\" " + returnNumMessage(userInput));
 
-            System.out.println(reverse(userInput));
+            System.out.println("Flipped Case: " + swapCase(userInput));
+
+            System.out.println("Reversed: " + reverse(userInput));
+
+            System.out.println();
 
             System.out.println("Would you like to enter something else?");
             yesNo = input.nextLine();
@@ -32,5 +39,9 @@ public class StringTest {
         System.out.println("Thanks for playing!");
 
 
+    }
+    //Justin's solution for determining if the input is a string or not
+    public static String returnNumMessage(String input){
+        return (StringUtils.isNumeric(input)) ? "is a number" : "is not a number";
     }
 }
